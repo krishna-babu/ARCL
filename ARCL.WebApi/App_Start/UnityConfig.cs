@@ -21,9 +21,15 @@ namespace ARCL.WebApi
             // e.g. container.RegisterType<ITestService, TestService>();
 
             container.RegisterType<ARCLContext, ARCLContext>();
-            container.RegisterType<IBaseRepository<Team>, TeamRepository>();
+
+            //Repo DI's
+            container.RegisterType<ITeamRepository, TeamRepository>();
+            container.RegisterType<ISeasonRepository, SeasonRepository>();
+
+            //Service DI's
             container.RegisterType<ITeamService, TeamService>();
-            
+            container.RegisterType<ISeasonService, SeasonService>();
+
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using ARCL.DBModel;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Web.Http;
-using System.Web.Http.Filters;
-using System.Linq;
+using System.Web.OData.Batch;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
+using Microsoft.OData.Edm;
 
 namespace ARCL.WebApi.App_Start
 {
@@ -11,12 +14,13 @@ namespace ARCL.WebApi.App_Start
         public static void Configure(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
-
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.MapODataServiceRoute("odata", null, GetEdmModel(), new DefaultODataBatchHandler(GlobalConfiguration.DefaultServer));
 
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
@@ -31,5 +35,18 @@ namespace ARCL.WebApi.App_Start
 
             
         }
+
+        private static IEdmModel GetEdmModel()
+        {
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.Namespace = "ARCL";
+            builder.ContainerName = "DBContainer";
+            builder.EntitySet<Team>("Team");
+            builder.EntitySet<Season>("Season");
+            var edmModel = builder.GetEdmModel();
+            return edmModel;
+        }
+
+
     }
 }

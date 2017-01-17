@@ -19,9 +19,9 @@ namespace ARCL.Repository
             _context = context;
             _dbSet = context.Set<T>();
         }
-        public virtual IEnumerable<T> GetAll(int offSet, int rowCount)
+        public virtual IQueryable<T> GetAll(int offSet, int rowCount)
         {
-            return _dbSet.Skip(offSet).Take(rowCount).AsEnumerable();
+            return _dbSet.Skip(offSet).Take(rowCount).AsQueryable();
         }
 
         public virtual int GetTotalRowCount
@@ -32,9 +32,9 @@ namespace ARCL.Repository
             }
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
-            return _dbSet.AsEnumerable<T>();
+            return _dbSet.AsQueryable<T>();
         }
 
         public virtual T GetById(int id)

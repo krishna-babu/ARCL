@@ -6,8 +6,16 @@ namespace ARCL.DBModel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+    [Table("Team")]
     public partial class Team
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Team()
+        {
+            HostMatches = new HashSet<Match>();
+            VistingMatches = new HashSet<Match>();
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
@@ -20,5 +28,11 @@ namespace ARCL.DBModel
         public byte[] Logo { get; set; }
 
         public DateTime? CreatedDate { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Match> HostMatches { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Match> VistingMatches { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.OData;
 
 namespace ARCL.WebApi.Controllers
 {
@@ -17,10 +18,8 @@ namespace ARCL.WebApi.Controllers
             service = _service;
         }
 
-        [HttpGet]
-        public IEnumerable<Team> All()
-
-        {
+        [EnableQuery]
+        public IQueryable<Team> Get() {
             return service.GetTeams();
         }
     }

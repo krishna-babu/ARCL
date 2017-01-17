@@ -11,13 +11,13 @@ namespace ARCL.BusinessService
 {
     public class TeamService : ITeamService
     {
-        IBaseRepository<Team> repo = null;
+        ITeamRepository repo = null;
 
-        public TeamService(IBaseRepository<Team> _repo)
+        public TeamService(ITeamRepository _repo)
         {
             this.repo = _repo;
         }
-        public IEnumerable<Team> GetTeams()
+        public IQueryable<Team> GetTeams()
         {
             return repo.GetAll();
         }

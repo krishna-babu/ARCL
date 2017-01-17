@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\ITeamService.cs" />
+    <Compile Include="Interface\ISeasonService.cs" />
+    <Compile Include="SeasonService.cs" />
     <Compile Include="TeamService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

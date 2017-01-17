@@ -9,6 +9,6 @@ namespace ARCL.BusinessService.Interface
 {
     public interface ITeamService
     {
-        IEnumerable<Team> GetTeams();
+        IQueryable<Team> GetTeams();
     }
 }

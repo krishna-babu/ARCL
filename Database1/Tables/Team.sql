@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Teams]
+﻿CREATE TABLE [dbo].[Team]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [Name] NVARCHAR(50) NULL, 

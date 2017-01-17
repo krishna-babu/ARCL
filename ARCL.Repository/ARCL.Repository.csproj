@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="Interface\ITeamRepository.cs" />
+    <Compile Include="Interface\ISeasonRepository.cs" />
+    <Compile Include="SeasonRepository.cs" />
     <Compile Include="TeamRepository.cs" />
     <Compile Include="Interface\IBaseRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

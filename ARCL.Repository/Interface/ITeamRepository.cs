@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using ARCL.DBModel;
 
 namespace ARCL.Repository.Interface
 {
-    public interface ITeamRepository
+    public interface ITeamRepository: IBaseRepository<Team>
     {
     }
 }
