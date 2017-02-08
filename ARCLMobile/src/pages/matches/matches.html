@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Matches
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+  <ion-item *ngFor="let curItem of matches" (click)="itemClicked(curItem)">
+    <h2>{{curItem.name}}</h2>
+    <p></p>
+  </ion-item>
+</ion-list>
+</ion-content>

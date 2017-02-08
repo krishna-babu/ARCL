@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Scoring</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="scoringConfig.match">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col width-40>
+          <!--<img [src]="scoringConfig.match.team1.imageUrl">-->
+        </ion-col>
+        <ion-col width-20>
+          <p>VS</p>
+        </ion-col>
+        <ion-col width-40>
+          <img src="assets/demo/csk_logo.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-icon name="baseball" item-left large></ion-icon>
+      <h2>Team 1 vs Team 2</h2>
+      <p>Today, Starts in 1hr 12min.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="compass" item-left large></ion-icon>
+      <h2>Seattle Stadium</h2>
+      <p>11 N. Way St, Madison, WA 53703</p>
+    </ion-item>
+
+    <ion-item>
+      <span item-left>18 min</span>
+      <span item-left>(2.6 mi)</span>
+      <button ion-button icon-left clear item-right>
+      <ion-icon name="navigate"></ion-icon>
+      Navigate
+    </button>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-list>
+    <ion-item (click)="selectMatch()">
+      <h2 *ngIf="scoringConfig.match">{{scoringConfig.match.name}}</h2>
+      <p>Match</p>
+
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
