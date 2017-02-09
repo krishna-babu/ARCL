@@ -1,4 +1,4 @@
-import { Match } from './../../models/models';
+import { Match, ScoringConfig } from './../../models/models';
 import { MatchesPage } from './../matches/matches';
 import { Component } from '@angular/core';
 
@@ -9,9 +9,7 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'scoring.html'
 })
 export class ScoringPage {
-  private scoringConfig: any = {
-    match: Match
-  };
+  public scoringConfig: ScoringConfig = new ScoringConfig();
 
   constructor(public navCtrl: NavController) {
     

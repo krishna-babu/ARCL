@@ -13,3 +13,7 @@ export class Match{
     public address1: string;
     public address2: string;
 }
+
+export class ScoringConfig{
+    public match: Match;
+}

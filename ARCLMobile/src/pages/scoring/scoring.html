@@ -10,13 +10,24 @@
     <ion-grid>
       <ion-row>
         <ion-col width-40>
-          <!--<img [src]="scoringConfig.match.team1.imageUrl">-->
+          <img [src]="scoringConfig.match.team1.imageUrl">
         </ion-col>
         <ion-col width-20>
-          <p>VS</p>
+          <ion-icon name="trophy"></ion-icon>
         </ion-col>
         <ion-col width-40>
-          <img src="assets/demo/csk_logo.png">
+          <img [src]="scoringConfig.match.team2.imageUrl">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-40>
+          <h4>{{scoringConfig.match.team1.name}}</h4>
+        </ion-col>
+        <ion-col width-20>
+          
+        </ion-col>
+        <ion-col width-40>
+          <h4>{{scoringConfig.match.team2.name}}</h4>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -47,6 +58,7 @@
   <ion-list>
     <ion-item (click)="selectMatch()">
       <h2 *ngIf="scoringConfig.match">{{scoringConfig.match.name}}</h2>
+      <h2 *ngIf="!scoringConfig.match">Select a match</h2>
       <p>Match</p>
 
       <ion-icon name="arrow-forward" item-right></ion-icon>
