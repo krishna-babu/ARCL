@@ -1,5 +1,6 @@
 import { MatchesPage } from './../pages/matches/matches';
 import { ScoringService } from './../services/scoringService';
+import { ScoringConfigurationPage } from './../pages/scoring/scoringConfig';
 import { ScoringPage } from './../pages/scoring/scoring';
 import { ArclService } from './../services/arcl.service';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -17,6 +18,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     TeamsPage,
     HomePage,
     TabsPage,
+    ScoringConfigurationPage,
     ScoringPage,
     MatchesPage
   ],
@@ -29,8 +31,9 @@ import { TabsPage } from '../pages/tabs/tabs';
     TeamsPage,
     HomePage,
     TabsPage,
-    ScoringPage,
-    MatchesPage
+    ScoringConfigurationPage,
+    MatchesPage,
+    ScoringPage
   ],
   providers: [
     ArclService,
