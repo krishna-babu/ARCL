@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Scoring Config</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="scoringConfig.match">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col width-40>
+          <img [src]="scoringConfig.match.team1.imageUrl">
+        </ion-col>
+        <ion-col width-20>
+          <ion-icon name="trophy"></ion-icon>
+        </ion-col>
+        <ion-col width-40>
+          <img [src]="scoringConfig.match.team2.imageUrl">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-40>
+          <h4>{{scoringConfig.match.team1.name}}</h4>
+        </ion-col>
+        <ion-col width-20>
+          
+        </ion-col>
+        <ion-col width-40>
+          <h4>{{scoringConfig.match.team2.name}}</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-icon name="baseball" item-left large></ion-icon>
+      <h2>Team 1 vs Team 2</h2>
+      <p>Today, Starts in 1hr 12min.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="compass" item-left large></ion-icon>
+      <h2>Seattle Stadium</h2>
+      <p>11 N. Way St, Madison, WA 53703</p>
+    </ion-item>
+
+    <ion-item>
+      <span item-left>Scoring: </span>
+      <span item-left *ngIf="!agregate.hasStarted">Not Started</span>
+      <span item-left *ngIf="agregate.hasStarted">In Progress ({{agregate.basicScore}})</span>
+      <button ion-button icon-left clear item-right (click)="startScoring()">
+      <ion-icon name="play"></ion-icon>
+      <span *ngIf="!agregate.hasStarted">Start</span>
+      <span *ngIf="agregate.hasStarted">Continue Scoring</span>
+    </button>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-list>
+    <ion-item (click)="selectMatch()">
+      <h2 *ngIf="scoringConfig.match">{{scoringConfig.match.name}}</h2>
+      <h2 *ngIf="!scoringConfig.match">Select a match</h2>
+      <p>Match</p>
+
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

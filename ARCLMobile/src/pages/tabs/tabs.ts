@@ -1,4 +1,4 @@
-import { ScoringPage } from './../scoring/scoring';
+import { ScoringConfigurationPage } from './../scoring/scoringConfig';
 import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
@@ -11,7 +11,7 @@ export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   homeRoot: any = HomePage;
-  scoringRoot: any = ScoringPage;
+  scoringRoot: any = ScoringConfigurationPage;
   teamsRoot: any = TeamsPage;
 
   constructor() {
