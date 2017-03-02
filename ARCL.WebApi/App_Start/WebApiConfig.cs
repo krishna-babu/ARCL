@@ -43,6 +43,7 @@ namespace ARCL.WebApi.App_Start
             builder.ContainerName = "DBContainer";
             builder.EntitySet<Team>("Team");
             builder.EntitySet<Season>("Season");
+            builder.EntitySet<Season>("Score");
             var edmModel = builder.GetEdmModel();
             return edmModel;
         }

@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace ARCL.WebApi.Controllers
 {
-    public class MatchesController : ApiController
+    public class MatchesController : BaseController
     {
     }
 }

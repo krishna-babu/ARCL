@@ -9,6 +9,10 @@ namespace ARCL.DBModel
     [Table("Match")]
     public partial class Match
     {
+        public Match()
+        {
+            ScoreByEveryBall = new HashSet<Score>();
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
@@ -30,5 +34,7 @@ namespace ARCL.DBModel
         public virtual Team Team1Team { get; set; }
 
         public virtual Team Team2Team { get; set; }
+
+        public ICollection<Score> ScoreByEveryBall { get; set; }
     }
 }

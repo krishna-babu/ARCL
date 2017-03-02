@@ -6,22 +6,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.OData;
+using System.Web.Http.OData;
 
 namespace ARCL.WebApi.Controllers
 {
-    public class SeasonController : BaseController
+    public class ScoreController : BaseController
     {
-        ISeasonService service = null;
-        public SeasonController(ISeasonService _service)
+
+        IScoreService service = null;
+        public ScoreController(IScoreService _service)
         {
             service = _service;
         }
 
         [EnableQuery]
-        public IQueryable<Season> Get()
+        public IQueryable<Score> Get()
         {
-            return service.GetSeasons();
+            return service.GetScores();
         }
     }
 }

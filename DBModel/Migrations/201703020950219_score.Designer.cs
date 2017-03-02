@@ -7,13 +7,13 @@ namespace ARCL.DBModel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ChangedMatch : IMigrationMetadata
+    public sealed partial class score : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedMatch));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(score));
         
         string IMigrationMetadata.Id
         {
-            get { return "201701170018332_ChangedMatch"; }
+            get { return "201703020950219_score"; }
         }
         
         string IMigrationMetadata.Source

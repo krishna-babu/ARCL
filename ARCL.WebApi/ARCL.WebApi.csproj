@@ -229,6 +229,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\MatchesController.cs" />
+    <Compile Include="Controllers\ScoreController.cs" />
     <Compile Include="Controllers\SeasonController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\TestController.cs" />

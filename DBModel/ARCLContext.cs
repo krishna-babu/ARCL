@@ -8,7 +8,7 @@ namespace ARCL.DBModel
     public partial class ARCLContext : DbContext
     {
         public ARCLContext()
-            : base("name=DBContext")
+            : base("name=ARCLContext")
         {
         }
 
@@ -18,6 +18,7 @@ namespace ARCL.DBModel
         public virtual DbSet<Season> Seasons { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Score> Scores { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -53,6 +54,32 @@ namespace ARCL.DBModel
                 .HasMany(e => e.Players)
                 .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Player>()
+                .HasMany(e => e.RunsScored)
+                .WithRequired(e => e.Striker)
+                .HasForeignKey(e => e.Stricker_Id).WillCascadeOnDelete(false); 
+
+            modelBuilder.Entity<Player>()
+                .HasMany(e => e.Bowled)
+                .WithRequired(e => e.Bowler)
+                .HasForeignKey(e => e.Bowler_Id).WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Player>()
+                .HasMany(e => e.Fielded)
+                .WithRequired(e => e.Fielder)
+                .HasForeignKey(e => e.Fielder_Id).WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Player>()
+                .HasMany(e => e.NonStrikerBalls)
+                .WithRequired(e => e.NonStriker)
+                .HasForeignKey(e => e.NonStriker_Id).WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Match>()
+                .HasMany(e => e.ScoreByEveryBall)
+                .WithRequired(e => e.Match)
+                .HasForeignKey(e => e.Match_Id);
+
         }
 
         public virtual void SetModified(object entity)
