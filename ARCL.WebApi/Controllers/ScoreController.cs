@@ -24,5 +24,16 @@ namespace ARCL.WebApi.Controllers
         {
             return service.GetScores();
         }
+        [HttpPost]
+        public void AddScores(IEnumerable<Score> items)
+        {
+            service.AddScores(items);
+        }
+        [HttpPost]
+        public void AddScore(Score item)
+        {
+            service.AddScore(item);
+        }
+
     }
 }

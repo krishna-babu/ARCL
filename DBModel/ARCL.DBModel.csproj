@@ -59,6 +59,18 @@
     <Compile Include="Migrations\201703020950219_score.Designer.cs">
       <DependentUpon>201703020950219_score.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703022139114_changed_score.cs" />
+    <Compile Include="Migrations\201703022139114_changed_score.Designer.cs">
+      <DependentUpon>201703022139114_changed_score.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703022215522_changedID.cs" />
+    <Compile Include="Migrations\201703022215522_changedID.Designer.cs">
+      <DependentUpon>201703022215522_changedID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703022220040_changedID1.cs" />
+    <Compile Include="Migrations\201703022220040_changedID1.Designer.cs">
+      <DependentUpon>201703022220040_changedID1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +86,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703020950219_score.resx">
       <DependentUpon>201703020950219_score.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022139114_changed_score.resx">
+      <DependentUpon>201703022139114_changed_score.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022215522_changedID.resx">
+      <DependentUpon>201703022215522_changedID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022220040_changedID1.resx">
+      <DependentUpon>201703022220040_changedID1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -45,6 +45,7 @@ namespace ARCL.Repository
         public virtual void Add(T entity)
         {
             _dbSet.Add(entity);
+            _context.SaveChanges();
         }
 
         public virtual void Update(T entity)
@@ -58,6 +59,12 @@ namespace ARCL.Repository
             _dbSet.Attach(entity);
             _dbSet.Remove(entity);
         }
+        public virtual void AddRange(IEnumerable<T> entities)
+        {
+            _dbSet.AddRange(entities);
+            _context.SaveChanges();
+        }
+
 
     }
 

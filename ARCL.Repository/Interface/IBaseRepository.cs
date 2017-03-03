@@ -15,5 +15,6 @@ namespace ARCL.Repository.Interface
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
+        void AddRange(IEnumerable<TEntity> entities);
     }
 }

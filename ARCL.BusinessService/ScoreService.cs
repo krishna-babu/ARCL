@@ -22,5 +22,15 @@ namespace ARCL.BusinessService
         {
             return repo.GetAll();
         }
+
+        public void AddScore(Score Item)
+        {
+            repo.Add(Item);
+        }
+
+        public void AddScores(IEnumerable<Score> Items)
+        {
+            repo.AddRange(Items);
+        }
     }
 }

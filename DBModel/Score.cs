@@ -13,7 +13,7 @@ namespace ARCL.DBModel
     [Table("Score")]
     public class Score
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int Id { get; set; }
         public int Match_Id { get; set; }
         public virtual Match Match { get; set; }
@@ -29,16 +29,16 @@ namespace ARCL.DBModel
         public virtual Player Fielder { get; set; }
         public int NonStriker_Id { get; set; }
         public virtual Player NonStriker { get; set; }
-        short Over { get; set; }
+        public short Over { get; set; }
 
-        short Ball { get; set; }
+        public short Ball { get; set; }
 
-        Runs BatsmanScore { get; set; }
+        public Runs BatsmanScore { get; set; }
 
-        int ExtrasScore { get; set; }
+        public int ExtrasScore { get; set; }
         
         public OutType? Out { get; set; }
 
-        public Extras ExtrasType { get; set; }
+        public Extras? ExtrasType { get; set; }
     }
 }

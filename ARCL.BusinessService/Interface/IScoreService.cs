@@ -10,5 +10,9 @@ namespace ARCL.BusinessService.Interface
     public interface IScoreService
     {
         IQueryable<Score> GetScores();
+
+        void AddScore(Score Item);
+
+        void AddScores(IEnumerable<Score> Items);
     }
 }
