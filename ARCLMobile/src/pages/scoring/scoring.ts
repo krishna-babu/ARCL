@@ -15,24 +15,19 @@ export class ScoringPage {
 
   constructor(public navCtrl: NavController, private scoringService: ScoringService) {
     this.scoringConfig = this.scoringService.config;
-    if(this.scoringConfig.match){
-      this.agregate = this.scoringService.agregate;
-    }
+    this.agregate = this.scoringService.agregate;
+    this.currentDelivery = new DeliveryInfo();
+
+    // load temp players
+    this.currentDelivery.striker = new Player(1,"Bob");
+    this.currentDelivery.nonStriker = new Player(2,"Marley");
+
+    this.currentDelivery.bowler = new Player(3,"Bowler");
   }
 
-  public bob2(){
-    let d = new DeliveryInfo();
-    d.striker = new Player(1,"Bob");
-    d.basicScore = 2;
-
-    this.scoringService.addDelivery(d);
-  }
-
-  public mar1(){
-    let d = new DeliveryInfo();
-    d.striker = new Player(2,"Marley");
-    d.basicScore = 1;
-    
-    this.scoringService.addDelivery(d);
+  public scoreClick(score: number){
+    this.currentDelivery.basicScore = score;
+    this.scoringService.addDelivery(this.currentDelivery);
+    this.currentDelivery = this.currentDelivery.next();
   }
 }

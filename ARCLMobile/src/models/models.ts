@@ -44,13 +44,25 @@ export class PlayerAgregate {
 export class DeliveryInfo {
     public id: number;
     
-    public matchId: number;
-
     public striker: Player;
+    public nonStriker: Player;
 
     public bowler: Player;
 
     public basicScore: number;
+
+    public extraScore: number;
+
+    public next(): DeliveryInfo{
+        let result: DeliveryInfo = new DeliveryInfo();
+        
+        result.striker = this.basicScore % 2 == 0 ? this.striker : this.nonStriker;
+        result.nonStriker = this.basicScore % 2 == 0 ? this.nonStriker : this.striker;
+
+        result.bowler = this.bowler;
+        
+        return result;
+    }
 }
 
 export class AgregatedResult {

@@ -4,13 +4,51 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <h4>Batting</h4>
+  <ion-list>
+    <ion-item>
+        {{currentDelivery.striker.name}}
+        <p>32 / 47 balls</p>
+      <ion-icon name="radio-button-on" item-right></ion-icon>
+    </ion-item>
+    <ion-item>
+        {{currentDelivery.nonStriker.name}}
+        <p>18 / 22 balls</p>
+    </ion-item>
+  </ion-list>
+<h4>Bowling</h4>
+  <ion-list>
+  <ion-item>
+        {{currentDelivery.bowler.name}}
+        <p>1 0 Wkt 0 4 _</p>
+    </ion-item>
+  </ion-list>
+
+<h4>Scoring</h4>
+<ion-grid>
+  <ion-row>
+    <ion-col col-2><button ion-button full (click)="scoreClick(0)">0</button></ion-col>
+    <ion-col col-2><button ion-button full (click)="scoreClick(1)">1</button></ion-col>
+    <ion-col col-2><button ion-button full (click)="scoreClick(2)">2</button></ion-col>
+    <ion-col col-2><button ion-button full (click)="scoreClick(3)">3</button></ion-col>
+    <ion-col col-2><button ion-button full (click)="scoreClick(4)">4</button></ion-col>
+    <ion-col col-2><button ion-button full (click)="scoreClick(6)">6</button></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2><button ion-button full>5</button></ion-col>
+    <ion-col col-2><button ion-button full>7</button></ion-col>
+    <ion-col col-2><button ion-button full>Wkt</button></ion-col>
+    <ion-col col-2><button ion-button full>W</button></ion-col>
+    <ion-col col-2><button ion-button full>Out</button></ion-col>
+    <ion-col col-2><button ion-button full>N</button></ion-col>
+  </ion-row>
+</ion-grid>
+
   <div *ngIf="agregate">
       total : {{agregate.basicScore}}
   </div>
   <div *ngFor="let curItem of agregate.battingList">
 {{curItem.player.name}} : {{curItem.score}}
   </div>
-  <button (click)="bob2()">Bob scores 2</button>
-  <button (click)="mar1()">Marley scores 1</button>
 </ion-content>
